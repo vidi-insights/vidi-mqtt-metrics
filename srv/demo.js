@@ -14,7 +14,6 @@ require('seneca')()
   .use(sink_logger)
   .listen({port: opts.port})
 
-// A simple demo logger of everything that gets sinked
 function sink_logger (opts) {
   this.add({role: 'metrics', hook: 'sink'}, function (msg, done) {
     console.log(JSON.stringify(msg.metric, null, 2))

@@ -4,8 +4,8 @@
 - __Lead Maintainer:__ [Dean McDonnell][Lead]
 - __Sponsor:__ [nearForm][Sponsor]
 
-A Vidi: Metrics plugin that generates metrics [Seneca][]. Can be ran as a plugin or as a
-stand-alone micro-service. Used on both collectors and emitters.
+A Vidi: Metrics plugin that collects [MQTT.js][] messages. Can be ran as a plugin or as a
+stand-alone micro-service. Used on collectors only.
 
 - __Work in progress:__ This module is currently a work in progress.
 
@@ -37,7 +37,7 @@ locally and run,
 npm install; npm run demo
 ```
 
-The demo runs emits seneca messages on regular intervals and prints the mapped results to screen.
+The demo collects MQTT.js messages sent via upd and prints the mapped results to screen.
 
 ## Options
 
@@ -49,20 +49,8 @@ The demo runs emits seneca messages on regular intervals and prints the mapped r
   // The role to use when acting and adding actions
   role: 'metrics',
 
-  // A group to assign to emitted metrics
-  group: '',
-
-  // A tag to assign to emitted metrics
-  tag: '',
-
-  // A pid to assign to emitted metrics
-  pid: process.pid,
-
-  // The size of the rolling stats
-  size: 9999,
-
-  // The interval to calculate rolling stats
-  interval: 1000
+  // the source tag to map
+  source: 'mqtt',
 }
 
 ```

@@ -5,6 +5,7 @@ var _ = require('lodash')
 var opts = {
   plugin: 'vidi-mqtt-metrics',
   role: 'metrics',
+  source: 'mqtt'
 }
 
 module.exports = function (options) {
@@ -13,7 +14,7 @@ module.exports = function (options) {
 
   opts = extend(opts, options)
 
-  seneca.add({role: opts.role, hook: 'map'}, map)
+  seneca.add({role: opts.role, hook: 'map', source: opts.source}, map)
 
   return {
     name: opts.plugin
